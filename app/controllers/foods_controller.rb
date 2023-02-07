@@ -1,5 +1,4 @@
 class FoodsController < ApplicationController
-
   def index
     user_id = created_by
     @user = User.includes(:foods).find_by(id: user_id)
