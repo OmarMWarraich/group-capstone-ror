@@ -1,8 +1,11 @@
-<div>
-<div>
-  <%= link_to 'Add Food', foods_new_path(@user), class: 'text-3xl' %>
+<div class="w-full">
+<div class="w-full flex justify-end">
+  <%= link_to 'Add Food', foods_new_path(@user), class: 'text-xl bg-blue-300 p-4' %>
 </div>
-<div>
-<h1 class='text-3xl'>Add</h1>
+<div class="flex justify-between items-center border border-black mt-8">
+<div class="p-3 border-l border-black">Food</div>
+<div class="p-3 border-l border-black">Measurement Unit</div>
+<div class="p-3 border-l border-black">Unit Price</div>
+<div class="p-3 border-l border-black">Action</div>
 </div>
 </div>
