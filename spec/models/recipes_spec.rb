@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Recipe, type: :model do
   user = User.create(name: 'John')
-  recipe = Recipe.create(name: 'Apple Pie', user_id: user.id, preparationTime: '10min', cookingTime: '20min',
+  recipe = Recipe.create(name: 'Apple Pie', user_id: user.id, preparation_time: '10min', cooking_time: '20min',
                          description: 'A delicious apple pie', public: true)
 
   it 'should have a name' do
@@ -14,11 +14,11 @@ RSpec.describe Recipe, type: :model do
   end
 
   it 'should have a preparation time' do
-    expect(recipe.preparationTime).to eq('10min')
+    expect(recipe.preparation_time).to eq('10min')
   end
 
   it 'should have a cooking time' do
-    expect(recipe.cookingTime).to eq('20min')
+    expect(recipe.cooking_time).to eq('20min')
   end
 
   it 'should have a description' do
