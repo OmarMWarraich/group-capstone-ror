@@ -1,0 +1,32 @@
+<main class="p-6 max-w-md mx-auto flex ">
+<div class="p-6 w-full max-w-md:lg:sm mx-auto bg-white space-x-4 d-flex flex-col items-center">
+  <%= notice %>
+    <div class='flex'>
+    <h2 class='mx-auto'>Add Food</h2>
+    </div>
+    <%= form_with model: Food, url: foods_index_path(@user), method: :post, local: true do |f| %>
+        <div>
+            <div>
+          <%= f.text_area :title, placeholder: "Name" %>
+            </div>
+        </div>
+        <div>
+            <div>
+          <%= f.text_area :text, placeholder: "Measurement Unit" %>
+            </div>
+        </div>
+        <div>
+            <div>
+          <%= f.text_area :text, placeholder: "Price" %>
+            </div>
+        </div>
+        <div class='flex'>
+            <div class='mx-auto p-3 border'>
+            
+        <%= f.submit "Submit" %>
+            
+            </div>
+        </div>
+        <% end %>
+    </div>
+    </main>
