@@ -4,7 +4,7 @@
     <div class='flex'>
     <h2 class='m-auto'>Add Food</h2>
     </div>
-    <%= form_with model: Food, url: foods_index_path(@user), method: :post, local: true do |f| %>
+    <%= form_with model: Food, url: foods_index_path, method: :post, local: true do |f| %>
       <div>
         <%= f.text_field :title, placeholder: "Name" %>
       </div>

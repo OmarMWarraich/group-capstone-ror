@@ -1,7 +1,7 @@
 class FoodsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
-    user_id = created_by
-    @user = User.includes(:foods).find_by(id: user_id)
     @foods = Food.all
   end
 
@@ -11,6 +11,7 @@ class FoodsController < ApplicationController
 
   def create
     @food = Food.new(food_params)
+    @food.user_id = current_user.id
 
     respond_to do |format|
       if @food.save
@@ -30,10 +31,6 @@ class FoodsController < ApplicationController
   end
 
   private
-
-  def created_by
-    params[:user_id]
-  end
 
   def food_params
     params.require(:food).permit(:name, :measurement_unit, :price)
