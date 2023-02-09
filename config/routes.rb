@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'recipes/index'
-  get 'recipes/show'
   devise_for :users
 
   devise_scope :user do
@@ -8,6 +6,7 @@ Rails.application.routes.draw do
   end
 
   resources :foods, only: [:index, :new, :create, :destroy]
+  resources :recipes, only: [:index, :new, :create, :show, :destroy]
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
