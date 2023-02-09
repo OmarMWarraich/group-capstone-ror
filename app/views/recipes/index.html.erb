@@ -1,0 +1,25 @@
+
+<div class='recipes'>
+  <h1>Recipes</h1>
+  <ul>
+    <% @recipes.each do |recipe| %>
+      <li class='border border-black w-full'>
+        <%= link_to recipe_path(recipe.id) do %>
+          <%= recipe.name %>
+          <%= recipe.description %>
+          <% end %>
+          <%= button_to 'Remove', recipe, method: :delete, class:'bg-blue-300' %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+

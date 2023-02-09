@@ -76,3 +76,9 @@ group :test do
 end
 
 gem 'hotwire-livereload', '~> 1.2', group: :development
+
+gem 'devise', '~> 4.8'
+
+gem 'dotenv-rails', '~> 2.8'
+
+gem 'letter_opener', '~> 1.8'

@@ -1,0 +1,21 @@
+<%= form_with model: @recipe, method: :post do |f| %>
+    <div class='field'>
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </div>
+    <div class='field'>
+      <%= f.label :preparation_time %><br>
+      <%= f.text_area :preparation_time %>
+    </div>
+    <div class='field'>
+      <%= f.label :cooking_time %><br>
+      <%= f.text_area :cooking_time %>
+    </div>
+    <div class='field'>
+      <%= f.label :description %><br>
+      <%= f.text_area :description %>
+    </div>
+    <div class='actions'>
+      <%= f.submit %>
+    </div>
+  <% end %>

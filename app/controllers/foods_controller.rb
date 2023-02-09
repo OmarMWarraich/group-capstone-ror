@@ -1,7 +1,7 @@
 class FoodsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
-    user_id = created_by
-    @user = User.includes(:foods).find_by(id: user_id)
     @foods = Food.all
   end
 
@@ -10,32 +10,20 @@ class FoodsController < ApplicationController
   end
 
   def create
-    @food = Food.new(food_params)
-
-    respond_to do |format|
-      if @food.save
-        format.html { redirect_to foods_index_path, notice: 'Food was successfully created.' }
-        format.json { render :show, status: :created, location: @food }
-      else
-        format.html { render :new }
-        format.json { render json: @food.errors, status: :unprocessable_entity }
-      end
-    end
+    @food = Food.new(**food_params, user_id: current_user.id)
+    @food.save
+    redirect_to foods_path
   end
 
   def destroy
     @food = Food.find(params[:id])
     @food.destroy
-    redirect_to foods_index_path
+    redirect_to foods_path
   end
 
   private
 
-  def created_by
-    params[:user_id]
-  end
-
   def food_params
-    params.require(:food).permit(:name, :measurement_unit, :price)
+    params.require(:food).permit(:name, :measurement_unit, :price, :quantity)
   end
 end

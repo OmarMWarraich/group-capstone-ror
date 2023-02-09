@@ -1,32 +1,27 @@
-<main class="p-6 max-w-md mx-auto flex ">
-<div class="p-6 w-full max-w-md:lg:sm mx-auto bg-white space-x-4 d-flex flex-col items-center">
+<main class="p-6 max-w-md m-auto flex ">
+  <div class="p-6 w-full max-w-md mx-auto bg-white space-x-4 d-flex flex-col items-center">
   <%= notice %>
     <div class='flex'>
-    <h2 class='mx-auto'>Add Food</h2>
+    <h2 class='m-auto'>Add Food</h2>
     </div>
-    <%= form_with model: Food, url: foods_index_path(@user), method: :post, local: true do |f| %>
-        <div>
-            <div>
-          <%= f.text_area :title, placeholder: "Name" %>
-            </div>
-        </div>
-        <div>
-            <div>
-          <%= f.text_area :text, placeholder: "Measurement Unit" %>
-            </div>
-        </div>
-        <div>
-            <div>
-          <%= f.text_area :text, placeholder: "Price" %>
-            </div>
-        </div>
-        <div class='flex'>
-            <div class='mx-auto p-3 border'>
-            
+    <%= form_with model: @food, url: foods_path, method: :post, local: true do |f| %>
+      <div>
+        <%= f.text_field :name, placeholder: "Name" %>
+      </div>
+      <div>
+        <%= f.text_field :measurement_unit, placeholder: "Measurement Unit" %>
+      </div>
+      <div>
+        <%= f.text_field :price, placeholder: "Price" %>
+      </div>
+      <div>
+        <%= f.text_field :quantity, placeholder: "Quantity" %>
+      </div>
+      <div class='flex'>
+      <div class='m-auto  bg-blue-300 p-3'>
         <%= f.submit "Submit" %>
-            
-            </div>
-        </div>
-        <% end %>
-    </div>
-    </main>
+      </div>
+      </div>
+    <% end %>
+  </div>
+</main>
