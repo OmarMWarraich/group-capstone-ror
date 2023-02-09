@@ -5,6 +5,6 @@ class Food < ApplicationRecord
   validates :name, presence: true, uniqueness: true
 
   def count_for_recipe(recipe_id)
-    recipe_foods.where(recipe_id: recipe_id).count
+    recipe_foods.where(recipe_id:).count
   end
 end

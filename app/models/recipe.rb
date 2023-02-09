@@ -10,7 +10,6 @@ class Recipe < ApplicationRecord
   end
 
   def total_food_items
-    food_count = Food.count
-    food_count
+    Food.count
   end
 end
