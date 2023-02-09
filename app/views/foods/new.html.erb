@@ -6,16 +6,16 @@
     </div>
     <%= form_with model: @food, url: foods_path, method: :post, local: true do |f| %>
       <div>
-        <%= f.text_field :title, placeholder: "Name" %>
+        <%= f.text_field :name, placeholder: "Name" %>
       </div>
       <div>
-        <%= f.text_field :text, placeholder: "Measurement Unit" %>
+        <%= f.text_field :measurement_unit, placeholder: "Measurement Unit" %>
       </div>
       <div>
-        <%= f.text_field :text, placeholder: "Price" %>
+        <%= f.text_field :price, placeholder: "Price" %>
       </div>
       <div>
-        <%= f.text_field :text, placeholder: "Quantity" %>
+        <%= f.text_field :quantity, placeholder: "Quantity" %>
       </div>
       <div class='flex'>
       <div class='m-auto  bg-blue-300 p-3'>
