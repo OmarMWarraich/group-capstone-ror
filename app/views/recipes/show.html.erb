@@ -1,4 +1,22 @@
 <div class='recipe'>
   <h1><%= @recipe.name %></h1>
   <p><%= @recipe.description %></p>
+  
+  <p><%= @recipe.preparation_time %></p>
+  <p><%= @recipe.cooking_time %></p>
+  <p><%= @recipe.public %></p>
+  <p>Ingredients:</p>
+  <ul>
+    <% @recipe.recipe_foods.each do |recipe_food| %>
+      <li>
+        <%= recipe_food.food.name %>
+        <%= recipe_food.quantity %>
+        <%= recipe_food.food.measurement_unit %>
+      
+      </li>
+    <% end %>
+  </ul>
+
+  
+  
 </div>

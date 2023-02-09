@@ -3,7 +3,7 @@
   <h1>Recipes</h1>
   <ul>
     <% @recipes.each do |recipe| %>
-      <li class='border border-black'>
+      <li class='border border-black w-full'>
         <%= link_to recipe_path(recipe.id) do %>
           <%= recipe.name %>
           <%= recipe.description %>
