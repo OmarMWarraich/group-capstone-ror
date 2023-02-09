@@ -1,0 +1,18 @@
+<div class='flex-col w-full'>
+<% @recipes.each do |recipe| %>
+  <% if recipe.public %>
+    <div class='flex justify-between w-3/4 mb-5 border border-black p-2'>
+    <div>
+      <p class='font-semibold text-xl'><%= recipe.name %></p>
+      <p class='font-semibold text-xl'>By: <%= recipe.user.name %></p>
+    </div>
+    <div>
+    <p class='font-semibold text-xl'>Total food items: <%= recipe.total_food_items%></p>
+    <p class='font-semibold text-xl'>Total food price: <%= recipe.total_price%></p>
+    </div>
+    </div>
+  <% end %>
+<% end %>
+</div>
+
+

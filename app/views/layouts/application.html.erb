@@ -24,6 +24,11 @@
       <ul class="flex justify-center">
         <li class="p-3"><%= link_to "New Recipe", new_recipe_path %></li>      
         <li class="p-3"><%= link_to "Recipes", recipes_path %></li>
+        <% if Recipe.any? %>
+      <li class="p-3">
+        <%= link_to "Public Recipe", recipe_food_index_path %>
+      </li>
+      <% end %>
         <li class="p-3"><%= link_to "Food", foods_path %></li>
         <li class="p-3"><%= link_to "Sign Up", new_user_registration_path %></li>
         <li class="p-3"><%= link_to "Log In", new_user_session_path %></li>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'recipe_food/index'
   devise_for :users
 
   devise_scope :user do
