@@ -1,5 +1,7 @@
 class PublicRecipesController < ApplicationController
   def index
-    @recipes = Recipe.where(public: true).order(id: :desc)
+    @recipes = Recipe.all
+    @public_recipes = @recipes.select { |recipe| recipe.public == true }
+    @recipe = @public_recipes.first
   end
 end

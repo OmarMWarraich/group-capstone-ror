@@ -1,16 +1,24 @@
 
-<div class='recipes'>
+<div class='w-full'>
   <h1>Recipes</h1>
   <ul>
+  <li class='w-full'>
     <% @recipes.each do |recipe| %>
-      <li class='border border-black w-full'>
-        <%= link_to recipe_path(recipe.id) do %>
-          <%= recipe.name %>
-          <%= recipe.description %>
+        <% if recipe.user_id == current_user.id || recipe.public %>
+          <%= link_to recipe_path(recipe.id), class:'w-full border border-black flex p-3' do %>            
+              <div class='p-3'>
+                <%= recipe.name %>
+              </div>
+              <div class='p-3'>
+                <%= recipe.description %>
+              </div>
           <% end %>
-          <%= button_to 'Remove', recipe, method: :delete, class:'bg-blue-300' %>
-      </li>
-    <% end %>
+          <div class='text-center'>
+            <%= button_to 'Remove', recipe, method: :delete, class:'bg-blue-300' %>
+          </div>
+        <% end %>
+        <% end %>
+        </li>
   </ul>
 </div>
 
