@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Ability
   include CanCan::Ability
 
@@ -7,6 +5,7 @@ class Ability
     # Define abilities for the user here. For example:
 
     return unless user.role == 'admin'
+
     can %i[create read update destroy], Food if user.role == 'admin'
     can %i[create read update destroy], Recipe if user.role == 'admin'
     #

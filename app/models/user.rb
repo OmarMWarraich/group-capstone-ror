@@ -15,6 +15,6 @@ class User < ApplicationRecord
 
   def set_default_role
     self.role = 'admin'
-    self.save
+    save
   end
 end
