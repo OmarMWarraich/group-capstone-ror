@@ -17,7 +17,10 @@ class RecipesController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @recipe_foods = @recipe.recipe_foods
+ 
+  end
 
   def destroy
     @recipe.destroy
