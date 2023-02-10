@@ -27,7 +27,9 @@
     <div class="flex flex-col justify-center items-center w-1/4 p-0 h-full">
     <h3 class="p-3 border-b border-black w-full text-center text-2xl font-bold">Action</h3>
     <%@foods.each do |food| %>
+    <% if can? :destroy, food %>
     <%= button_to 'Delete', food_path(food), method: :delete, data: { confirm: 'Are you sure?' }, class: "text-red-500" %>
+    <%end%>
     <%end%>
     </div>
     </div>

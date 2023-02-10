@@ -45,6 +45,9 @@ gem 'bootsnap', require: false
 # tailwind css
 gem 'tailwindcss-rails'
 
+# Authorization with cancancan
+gem 'cancancan'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 

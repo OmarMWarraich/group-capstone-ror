@@ -8,7 +8,9 @@
           <%= recipe.name %>
           <%= recipe.description %>
           <% end %>
+          <% if can? :destroy, recipe %>
           <%= button_to 'Remove', recipe, method: :delete, class:'bg-blue-300' %>
+          <%end%>
       </li>
     <% end %>
   </ul>
