@@ -1,22 +1,44 @@
-<div class='recipe'>
-  <h1><%= @recipe.name %></h1>
-  <p><%= @recipe.description %></p>
-  
-  <p><%= @recipe.preparation_time %></p>
-  <p><%= @recipe.cooking_time %></p>
-  <p><%= @recipe.public %></p>
-  <p>Ingredients:</p>
-  <ul>
-    <% @recipe.recipe_foods.each do |recipe_food| %>
-      <li>
-        <%= recipe_food.food.name %>
-        <%= recipe_food.quantity %>
-        <%= recipe_food.food.measurement_unit %>
-      
-      </li>
+<div class='w-full'>
+  <h1 class='text-center text-3xl font-bold'><%= @recipe.name %></h1>
+  <br/>
+  <div class='flex justify-between'>
+    <div>
+      <p class='text-xl font-semibold'>Preparation Time: <%= @recipe.preparation_time %></p>
+    </div>
+    <div>
+      <% if @recipe.public %>
+        <div class="checker-container">
+          <input class="check-box" type="checkbox" id="checkbox-check" checked />
+          <label class="check-label" for="checkbox-check">Public</label>
+        </div>
+      <% end %> 
+      <% if !@recipe.public %>
+        <div class="checker-container">
+          <input class="check-box" type="checkbox" id="checkbox-check"/>
+          <label class="check-label" for="checkbox-check">Public</label>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <br/>
+  <p class='text-xl font-semibold'>Cooking Time: <%= @recipe.cooking_time %></p>
+  <br/>
+  <p class='text-xl font-semibold'><%= @recipe.description %></p> 
+  <br/>
+  <div class='flex w-full justify-between'>
+    <a href=''><span><button class='bg-blue-300 p-3'>Generate Shopping List</button></span></a>
+    <% if @recipe.user_id == current_user.id %>
+    <a href='/recipe_foods/new'><span><button class='bg-blue-300 p-3'>Add Ingredients</button></span></a>
     <% end %>
-  </ul>
+  </div>
+  <br/>
+  
+  <% @recipe_foods.each do |recipe_food| %>
+    <div class='flex justify-between'>
+      <div>
+        <p class='text-xl font-semibold'><%= recipe_food.quantity %> <%= recipe_food.food.measurement_unit %></p>
+      </div>
+    </div>
+  <% end %>
 
-  
-  
 </div>
