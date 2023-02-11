@@ -4,7 +4,7 @@
   <ul>
   <li class='w-full'>
     <% @recipes.each do |recipe| %>
-        <% if recipe.user_id == current_user.id || recipe.public %>
+        <% if recipe.user_id == current_user.id %>
           <%= link_to recipe_path(recipe.id), class:'w-full border border-black flex p-3' do %>            
               <div class='p-3'>
                 <%= recipe.name %>
