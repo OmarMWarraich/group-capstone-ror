@@ -28,10 +28,36 @@
   <div class='flex w-full justify-between'>
     <a href=''><span><button class='bg-blue-300 p-3'>Generate Shopping List</button></span></a>
     <% if @recipe.user_id == current_user.id %>
-    <%= button_to 'Add Ingredient', recipe_foods_create_path(@recipe.id), class: 'bg-blue-300 p-3' %>
+    <a href='/foods/new'><span><button class='bg-blue-300 p-3'>Add Ingredients</button></span></a>
     <% end %>
   </div>
+  <br/>
   
-  
-  
+  <div class='flex justify-between'>
+    <h2 class='text-2xl font-bold'>Ingredients</h2>
+    <% if @recipe.user_id == current_user.id %>
+    <a href=''><span><button class='bg-blue-300 p-3'>Edit</button></span></a>
+    <% end %>
+  </div>
+  <br/>
+  <div class='flex justify-between'>
+    <div class='w-1/2'>
+      <p class='text-xl font-semibold'>Name</p>
+    </div>
+    <div class='w-1/2'>
+      <p class='text-xl font-semibold'>Quantity</p>
+    </div>
+  </div>
+  <br/>
+  <% @recipe_foods.each do |recipe_food| %>
+    <div class='flex justify-between'>
+      <div class='w-1/2'>
+        <p class='text-xl font-semibold'><%= recipe_food.food.name %></p>
+      </div>
+      <div class='w-1/2'>
+        <p class='text-xl font-semibold'><%= recipe_food.quantity %></p>
+      </div>
+    </div>
+    <br/>
+  <% end %>
 </div>
