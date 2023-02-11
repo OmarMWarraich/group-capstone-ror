@@ -1,17 +1,21 @@
 <div class='w-full'>
   <h1 class="font-bold text-3xl text-center">Public Recipes</h1>
-  <% @public_recipes.each do |public_recipe| %> 
-    <div class='border border-black w-full'>
-      <%= link_to recipe_path(@recipe.id) do %>
+    <div>
+      <% @public_recipes.includes(:recipe_foods).each do |public_recipe| %>
         <div>
-          <div class=''>
-            <%= public_recipe.name %>
+          <div class='flex justify-between border border-black p-3' style='margin-top:1.5rem;'>
+            <div class='x'>
+              <h1><%= public_recipe.name %></h1>
+              <br/>
+              <h1>By: <%= public_recipe.user.name %></h1>
+            </div>
+            <div>
+              <% public_recipe.recipe_foods.each do |recipe_food| %>
+                <h1>Total food items: <%= recipe_food.quantity %></h1>
+                <h1>Total price: <%= recipe_food.quantity * recipe_food.food.price %></h1>
+              <% end %>
+            </div>    
           </div>
-        </div>
-        <div class=''>
-          <%= public_recipe.user.name %>
-        </div>
       <% end %>
-    </div>
-  <% end %>
+    </div>      
 </div>
