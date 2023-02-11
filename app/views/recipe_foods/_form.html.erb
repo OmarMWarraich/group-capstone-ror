@@ -1,0 +1,18 @@
+
+<%= form_with model: @recipe_food, url: recipe_foods_path, method: :post do |f| %>
+    <div>
+      <%= f.label :quantity %>
+      <%= f.text_field :quantity, placeholder: "Quantity" %>
+    </div>
+    <div>
+      <%= f.label :food_id %>
+      <%= f.select :food_id, options_for_select(@foods.map { |food| [food.name, food.id] }) %>
+    </div>
+    <div>
+      <%= f.label :recipe_id %>
+      <%= f.select :recipe_id, options_for_select(@recipes.map { |recipe| [recipe.name, recipe.id] }) %>
+    </div>
+    <div>
+      <%= f.submit "Submit" %>
+    </div>
+  <% end %>
