@@ -82,3 +82,5 @@ gem 'devise', '~> 4.8'
 gem 'dotenv-rails', '~> 2.8'
 
 gem 'letter_opener', '~> 1.8'
+
+gem "cssbundling-rails", "~> 1.1"

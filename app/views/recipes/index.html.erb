@@ -1,20 +1,20 @@
 
-<div class='w-full'>
+<div>
   <h1>Recipes</h1>
   <ul>
-  <li class='w-full'>
+  <li>
     <% @recipes.each do |recipe| %>
         <% if recipe.user_id == current_user.id %>
-          <%= link_to recipe_path(recipe.id), class:'w-full border border-black flex p-3' do %>            
-              <div class='p-3'>
+          <%= link_to recipe_path(recipe.id) do %>            
+              <div>
                 <%= recipe.name %>
               </div>
-              <div class='p-3'>
+              <div>
                 <%= recipe.description %>
               </div>
           <% end %>
-          <div class='text-center'>
-            <%= button_to 'Remove', recipe, method: :delete, class:'bg-blue-300' %>
+          <div>
+            <%= button_to 'Remove', recipe, method: :delete %>
           </div>
         <% end %>
         <% end %>

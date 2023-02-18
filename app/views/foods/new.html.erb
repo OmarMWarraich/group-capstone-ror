@@ -1,8 +1,8 @@
-<main class="p-6 max-w-md m-auto flex ">
-  <div class="p-6 w-full max-w-md mx-auto bg-white space-x-4 d-flex flex-col items-center">
+<main>
+  <div>
   <%= notice %>
-    <div class='flex'>
-    <h2 class='m-auto'>Add Food</h2>
+    <div>
+    <h2>Add Food</h2>
     </div>
     <%= form_with model: @food, url: foods_path, method: :post, local: true do |f| %>
       <div>
@@ -17,8 +17,8 @@
       <div>
         <%= f.text_field :quantity, placeholder: "Quantity" %>
       </div>
-      <div class='flex'>
-      <div class='m-auto  bg-blue-300 p-3'>
+      <div>
+      <div>
         <%= f.submit "Submit" %>
       </div>
       </div>

@@ -1,9 +1,9 @@
-<div class='w-full'>
-  <h1 class="font-bold text-3xl text-center">Public Recipes</h1>
+<div>
+  <h1>Public Recipes</h1>
     <div>
       <% @public_recipes.includes(:recipe_foods).each do |public_recipe| %>
         <div>
-          <div class='flex justify-between border border-black p-3' style='margin-top:1.5rem;'>
+          <div>
             <div class='x'>
               <h1><%= public_recipe.name %></h1>
               <br/>

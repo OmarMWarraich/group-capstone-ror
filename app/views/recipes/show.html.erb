@@ -1,9 +1,9 @@
-<div class='w-full'>
-  <h1 class='text-center text-3xl font-bold'><%= @recipe.name %></h1>
+<div>
+  <h1><%= @recipe.name %></h1>
   <br/>
-  <div class='flex justify-between'>
+  <div>
     <div>
-      <p class='text-xl font-semibold'>Preparation Time: <%= @recipe.preparation_time %></p>
+      <p>Preparation Time: <%= @recipe.preparation_time %></p>
     </div>
     <div>
       <% if @recipe.public %>
@@ -21,22 +21,22 @@
     </div>
   </div>
   <br/>
-  <p class='text-xl font-semibold'>Cooking Time: <%= @recipe.cooking_time %></p>
+  <p>Cooking Time: <%= @recipe.cooking_time %></p>
   <br/>
-  <p class='text-xl font-semibold'><%= @recipe.description %></p> 
+  <p><%= @recipe.description %></p> 
   <br/>
-  <div class='flex w-full justify-between'>
-    <a href=''><span><button class='bg-blue-300 p-3'>Generate Shopping List</button></span></a>
+  <div>
+    <a href=''><span><button>Generate Shopping List</button></span></a>
     <% if @recipe.user_id == current_user.id %>
-    <a href='/recipe_foods/new'><span><button class='bg-blue-300 p-3'>Add Ingredients</button></span></a>
+    <a href='/recipe_foods/new'><span><button>Add Ingredients</button></span></a>
     <% end %>
   </div>
   <br/>
   
   <% @recipe_foods.each do |recipe_food| %>
-    <div class='flex justify-between'>
+    <div>
       <div>
-        <p class='text-xl font-semibold'><%= recipe_food.quantity %> <%= recipe_food.food.measurement_unit %></p>
+        <p><%= recipe_food.quantity %> <%= recipe_food.food.measurement_unit %></p>
         
       </div>
     </div>
