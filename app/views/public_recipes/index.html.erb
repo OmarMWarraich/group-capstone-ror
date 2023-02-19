@@ -1,24 +1,22 @@
-<div>
-<div class='container'>
-  <h1 class='text-center' style='margin:3rem 0;'>Public Recipes</h1>
-  <div class='grid'>
+<p style="color: green"><%= notice %></p>
 
-  <% @recipes.each do |recipe| %>
-   <% if recipe.public == true %>
-    <div class='recipe-card'>
-      <div class='flex-col'>
-        <div>
-          <p><%= recipe.name %></p>
-        </div>
-        <div>
-          <%= link_to 'Delete', recipe_path(recipe), method: :delete, data: { confirm: 'Are you sure?' } %>
+<h1 class='text-center'>Public Recipes</h1>
+
+<div class='container public' style='margin-top:2.5rem;'>
+<% @recipes.each do |recipe| %>
+  <%= link_to recipes_url do %>
+      <div class='grid' style='margin-bottom:2rem;'>
+        <div class='recipe-card'>
+          <div class='flex-col'>
+            <p><%= recipe.name %></p>
+            <p><%= recipe.user.name %></p>
+          </div>
+          <div>
+            <p>Total Food Items: </p>
+            <p>Total Price: </p>
+          </div>              
         </div>
       </div>
-      <div>
-        <p><%= recipe.description %></p>
-      </div>
-    </div>
     <% end %>
   <% end %>
-  </div>
 </div>

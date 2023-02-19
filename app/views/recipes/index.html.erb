@@ -1,14 +1,23 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Recipes</h1>
+<h1 class='text-center'>Recipes</h1>
 
-<div id="recipes">
-  <% @recipes.each do |recipe| %>
-    <%= render recipe %>
-    <p>
-      <%= link_to "Show this recipe", recipe %>
-    </p>
-  <% end %>
+<div class='container' style='margin-top:2.5rem;'>
+  <div class='align-left' style='margin-bottom:5rem;'>
+    <%=link_to "Add Recipe", new_recipe_path, class: "large-button" %>
+  </div>
 </div>
-
-<%= link_to "New recipe", new_recipe_path %>
+<% @recipes.each do |recipe| %>
+  <div class='recipe-card' style='margin-top:2.5rem;'>
+    <div>
+      <h3 style='margin-bottom:0.6rem;'>Recipe <%= recipe.id %></h3>
+      <%= button_to "Delete", recipe_path(recipe.id), method: :delete, class:'large-button' %>
+    </div>
+    <%= link_to recipe_path(recipe.id) do %>
+    <div>
+      <p><%= recipe.description %></p>
+    </div>
+    <% end %>
+  </div>
+<% end %>      
+        

@@ -1,10 +1,23 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @food %>
+<h1 class='text-center'>Public Recipes</h1>
 
-<div>
-  <%= link_to "Edit this food", edit_food_path(@food) %> |
-  <%= link_to "Back to foods", foods_path %>
-
-  <%= button_to "Destroy this food", @food, method: :delete %>
+<div class='container' style='margin-top:2.5rem;'>
+  <%= link_to recipe_path(@recipe) do %>
+    <% @recipes.each do |recipe| %>
+      <div class='grid'>
+        <div class='recipe-card'>
+          <div class='flex-col'>
+            <%= recipe.name %>
+            <%= recipe.user.name %>
+          </div>
+          <div>
+            <p>Total Food Items: </p>
+            <p>Total Price: </p>
+          </div>              
+        </div>
+      </div>
+    <% end %>
+  <% end %>
 </div>
+

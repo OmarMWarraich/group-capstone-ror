@@ -132,7 +132,6 @@ select {
 }
 
 .grid-container {
-  margin-top: 5rem;
   display: grid;
   column-gap: var(--container-gap, 2rem);
   grid-template-columns: repeat(4, minmax(0, 30rem));
@@ -141,7 +140,12 @@ select {
   font-size: var(--fs-400);
   border: 2px solid hsl(var(--clr-white) / 0.1);
   border-bottom: none;
-  padding: 10px 0;
+  padding: 1rem;
+  margin-bottom: 0;
+}
+
+.grid-container:last-of-type {
+  border-bottom: 2px solid hsl(var(--clr-white) / 0.1);
 }
 
 .sr-only {
@@ -221,11 +225,8 @@ select {
   display: inline-grid;
   place-items: center;
   text-decoration: none;
-}
-
-.small-button {
-  padding: 0.5rem;
-  text-decoration: none;
+  background-color: hsl(var(--clr-light));
+  color: hsl(var(--clr-dark));
 }
 
 .normal-button::after,
@@ -249,7 +250,7 @@ select {
 }
 
 .large-button {
-  padding: 3rem;
+  padding: 0.5rem 1.5rem;
 }
 
 .normal-button {
@@ -320,9 +321,15 @@ select {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   padding: 20px;
   display: grid;
-  grid-template-columns: 150px 1fr;
+  grid-template-columns: 200px 300px;
   grid-gap: 10px;
   align-items: center;
   color: white;
   font-weight: 100;
+  place-items: center;
+  text-decoration: none;
+}
+
+.public a {
+  text-decoration: none;
 }
