@@ -1,45 +1,10 @@
-<div>
-  <h1><%= @recipe.name %></h1>
-  <br/>
-  <div>
-    <div>
-      <p>Preparation Time: <%= @recipe.preparation_time %></p>
-    </div>
-    <div>
-      <% if @recipe.public %>
-        <div class="checker-container">
-          <input class="check-box" type="checkbox" id="checkbox-check" checked />
-          <label class="check-label" for="checkbox-check">Public</label>
-        </div>
-      <% end %> 
-      <% if !@recipe.public %>
-        <div class="checker-container">
-          <input class="check-box" type="checkbox" id="checkbox-check"/>
-          <label class="check-label" for="checkbox-check">Public</label>
-        </div>
-      <% end %>
-    </div>
-  </div>
-  <br/>
-  <p>Cooking Time: <%= @recipe.cooking_time %></p>
-  <br/>
-  <p><%= @recipe.description %></p> 
-  <br/>
-  <div>
-    <a href=''><span><button>Generate Shopping List</button></span></a>
-    <% if @recipe.user_id == current_user.id %>
-    <a href='/recipe_foods/new'><span><button>Add Ingredients</button></span></a>
-    <% end %>
-  </div>
-  <br/>
-  
-  <% @recipe_foods.each do |recipe_food| %>
-    <div>
-      <div>
-        <p><%= recipe_food.quantity %> <%= recipe_food.food.measurement_unit %></p>
-        
-      </div>
-    </div>
-  <% end %>
+<p style="color: green"><%= notice %></p>
 
+<%= render @recipe %>
+
+<div>
+  <%= link_to "Edit this recipe", edit_recipe_path(@recipe) %> |
+  <%= link_to "Back to recipes", recipes_path %>
+
+  <%= button_to "Destroy this recipe", @recipe, method: :delete %>
 </div>

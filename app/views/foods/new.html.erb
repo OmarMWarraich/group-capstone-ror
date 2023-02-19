@@ -1,27 +1,9 @@
-<main>
-  <div>
-  <%= notice %>
-    <div>
-    <h2>Add Food</h2>
-    </div>
-    <%= form_with model: @food, url: foods_path, method: :post, local: true do |f| %>
-      <div>
-        <%= f.text_field :name, placeholder: "Name" %>
-      </div>
-      <div>
-        <%= f.text_field :measurement_unit, placeholder: "Measurement Unit" %>
-      </div>
-      <div>
-        <%= f.text_field :price, placeholder: "Price" %>
-      </div>
-      <div>
-        <%= f.text_field :quantity, placeholder: "Quantity" %>
-      </div>
-      <div>
-      <div>
-        <%= f.submit "Submit" %>
-      </div>
-      </div>
-    <% end %>
-  </div>
-</main>
+<h1>New food</h1>
+
+<%= render "form", food: @food %>
+
+<br>
+
+<div>
+  <%= link_to "Back to foods", foods_path %>
+</div>

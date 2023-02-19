@@ -1,25 +1,47 @@
-<%= form_with model: @recipe, method: :post do |f| %>
-    <div class='field'>
-      <%= f.label :name %><br>
-      <%= f.text_field :name %>
-    </div>
-    <div class='field'>
-      <%= f.label :preparation_time %><br>
-      <%= f.text_area :preparation_time %>
-    </div>
-    <div class='field'>
-      <%= f.label :cooking_time %><br>
-      <%= f.text_area :cooking_time %>
-    </div>
-    <div class='field'>
-      <%= f.label :description %><br>
-      <%= f.text_area :description %>
-    </div>
-    <div class='field'>
-      <%= f.label :public, style: "display: block" %>
-      <%= f.check_box :public %>
-    </div>
-    <div class='actions'>
-      <%= f.submit %>
+<%= form_with(model: recipe) do |form| %>
+  <% if recipe.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+
+      <ul>
+        <% recipe.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
     </div>
   <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :preparation_time, style: "display: block" %>
+    <%= form.text_field :preparation_time %>
+  </div>
+
+  <div>
+    <%= form.label :cooking_time, style: "display: block" %>
+    <%= form.text_field :cooking_time %>
+  </div>
+
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div>
+    <%= form.label :public, style: "display: block" %>
+    <%= form.check_box :public %>
+  </div>
+
+  <div>
+    <%= form.label :user_id, style: "display: block" %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
