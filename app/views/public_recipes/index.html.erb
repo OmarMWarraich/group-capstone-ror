@@ -1,21 +1,24 @@
 <div>
-  <h1>Public Recipes</h1>
-    <div>
-      <% @public_recipes.includes(:recipe_foods).each do |public_recipe| %>
+<div class='container'>
+  <h1 class='text-center' style='margin:3rem 0;'>Public Recipes</h1>
+  <div class='grid'>
+
+  <% @recipes.each do |recipe| %>
+   <% if recipe.public == true %>
+    <div class='recipe-card'>
+      <div class='flex-col'>
         <div>
-          <div>
-            <div class='x'>
-              <h1><%= public_recipe.name %></h1>
-              <br/>
-              <h1>By: <%= public_recipe.user.name %></h1>
-            </div>
-            <div>
-              <% public_recipe.recipe_foods.each do |recipe_food| %>
-                <h1>Total food items: <%= recipe_food.quantity %></h1>
-                <h1>Total price: <%= recipe_food.quantity * recipe_food.food.price %></h1>
-              <% end %>
-            </div>    
-          </div>
-      <% end %>
-    </div>      
+          <p><%= recipe.name %></p>
+        </div>
+        <div>
+          <%= link_to 'Delete', recipe_path(recipe), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+      </div>
+      <div>
+        <p><%= recipe.description %></p>
+      </div>
+    </div>
+    <% end %>
+  <% end %>
+  </div>
 </div>

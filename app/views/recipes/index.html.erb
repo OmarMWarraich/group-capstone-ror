@@ -1,25 +1,26 @@
 
-<div>
-  <h1>Recipes</h1>
-  <ul>
-  <li>
-    <% @recipes.each do |recipe| %>
-        <% if recipe.user_id == current_user.id %>
-          <%= link_to recipe_path(recipe.id) do %>            
-              <div>
-                <%= recipe.name %>
-              </div>
-              <div>
-                <%= recipe.description %>
-              </div>
-          <% end %>
-          <div>
-            <%= button_to 'Remove', recipe, method: :delete %>
-          </div>
-        <% end %>
-        <% end %>
-        </li>
-  </ul>
+<div class='container'>
+  <h1 class='text-center' style='margin:3rem 0;'>Recipes</h1>
+  <div class='grid'>
+
+  <% @recipes.each do |recipe| %>
+
+    <div class='recipe-card'>
+      <div class='flex-col'>
+        <div>
+          <p><%= recipe.name %></p>
+        </div>
+        <div>
+          <%= link_to 'Delete', recipe_path(recipe), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+      </div>
+      <div>
+        <p><%= recipe.description %></p>
+      </div>
+    </div>
+
+  <% end %>
+  </div>
 </div>
 
 

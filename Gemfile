@@ -42,9 +42,6 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
 
-# tailwind css
-gem 'tailwindcss-rails'
-
 # Use Sass to process CSS
 # gem "sassc-rails"
 
@@ -82,5 +79,3 @@ gem 'devise', '~> 4.8'
 gem 'dotenv-rails', '~> 2.8'
 
 gem 'letter_opener', '~> 1.8'
-
-gem "cssbundling-rails", "~> 1.1"

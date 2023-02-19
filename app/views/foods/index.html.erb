@@ -1,35 +1,11 @@
-<div>
-    <div>
-    <%= link_to 'Add Food', new_food_path %>
-    </div>
-    <div>
-    <div>
-    <h3>Food</h3>
-    <ul>
-    <% @foods.each do |food| %>
-    <li><%= food.name %></li>
-    <%end%>
-    </ul>
-    </div>
-    <div>
-    <h3>Measurement Unit</h3>
-    <ul>
-    <% @foods.each do |food| %>
-    <li><%= food.measurement_unit %></li>
-    <%end%>
-    </ul></div>
-    <div>
-    <h3>Unit Price</h3>
-    <ul>
-    <% @foods.each do |food| %>
-    <li>$<%= food.price %></li>
-    <%end%>
-    </ul></div>
-    <div>
-    <h3>Action</h3>
-    <%@foods.each do |food| %>
-    <%= button_to 'Delete', food_path(food), method: :delete, data: { confirm: 'Are you sure?' } %>
-    <%end%>
-    </div>
-    </div>
-    </div>
+<div class='container' style='margin-top:2.5rem;'>
+  <div class='align-left'>
+    <%=button_to "Add Food", new_food_path, class: "normal-button" %>
+  </div>
+  <ul class='grid-container'>
+    <li>Food</li>
+    <li>Measurement Unit</li>
+    <li>Price</li>
+    <li>Actions</li>
+  </ul>
+</div>
