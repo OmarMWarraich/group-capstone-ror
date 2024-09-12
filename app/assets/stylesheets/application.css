@@ -152,7 +152,7 @@ select {
   place-items: center;
   font-size: var(--fs-400);
   border: 2px solid hsl(var(--clr-white) / 0.1);
-  border-bottom: none;
+  /* border-bottom: none; */
   padding: 1rem;
   margin-bottom: 0;
 }
