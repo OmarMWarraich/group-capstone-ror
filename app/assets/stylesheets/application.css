@@ -387,3 +387,116 @@ select {
 .public a {
   text-decoration: none;
 }
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: hsl(
+    var(--clr-dark)
+  ); /* Use custom property for dark color */
+}
+
+.modal-content {
+  background-color: hsl(
+    var(--clr-dark)
+  ); /* Use custom property for dark color */
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid hsl(var(--clr-white) / 0.1); /* Use custom property for dark color */
+  width: 80%;
+  max-width: 40rem; /* Add a max-width for better responsiveness */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  border-radius: 8px; /* Add border radius for rounded corners */
+}
+
+.close-button {
+  color: hsl(var(--clr-light)); /* Use custom property for dark color */
+  float: right;
+  font-size: var(--fs-600); /* Use custom property for font size */
+  font-weight: bold;
+  background: none; /* Remove default button background */
+  border: none; /* Remove default button border */
+  cursor: pointer; /* Add pointer cursor */
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: hsl(var(--clr-white)); /* Darken color on hover/focus */
+  text-decoration: none;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Form Styles */
+.food-form {
+  background-color: hsl(
+    var(--clr-dark)
+  ); /* Use custom property for dark color */
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 500px;
+  margin: 0 auto; /* Center the form */
+  color: hsl(var(--clr-white)); /* Use custom property for white color */
+}
+
+.form-errors {
+  color: red;
+  margin-bottom: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: var(--fs-400); /* Use custom property for font size */
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid hsl(var(--clr-white) / 0.1); /* Use custom property for white color */
+  border-radius: 4px;
+  background-color: hsl(
+    var(--clr-light)
+  ); /* Use custom property for light color */
+  color: hsl(var(--clr-dark)); /* Use custom property for dark color */
+}
+
+.form-input:focus {
+  border-color: hsl(
+    var(--clr-white) / 0.5
+  ); /* Use custom property for white color */
+  outline: none;
+}
+
+.form-submit {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: hsl(
+    var(--clr-light)
+  ); /* Use custom property for light color */
+  color: hsl(var(--clr-dark)); /* Use custom property for dark color */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: var(--fs-400); /* Use custom property for font size */
+}
+
+.form-submit:hover,
+.form-submit:focus {
+  background-color: hsl(
+    var(--clr-white)
+  ); /* Use custom property for white color */
+  color: hsl(var(--clr-dark)); /* Use custom property for dark color */
+}

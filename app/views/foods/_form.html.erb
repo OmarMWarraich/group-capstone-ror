@@ -1,8 +1,7 @@
-<%= form_with(model: food) do |form| %>
+<%= form_with(model: food, html: { class: "food-form" }) do |form| %>
   <% if food.errors.any? %>
-    <div style="color: red">
+    <div class="form-errors">
       <h2><%= pluralize(food.errors.count, "error") %> prohibited this food from being saved:</h2>
-
       <ul>
         <% food.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -11,26 +10,24 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+  <div class="form-group">
+    <%= form.label :name, class: "form-label" %>
+    <%= form.text_field :name, class: "form-input" %>
   </div>
 
-  <div>
-    <%= form.label :measurement_unit, style: "display: block" %>
-    <%= form.text_field :measurement_unit %>
+  <div class="form-group">
+    <%= form.label :measurement_unit, class: "form-label" %>
+    <%= form.text_field :measurement_unit, class: "form-input" %>
   </div>
 
-  <div>
-    <%= form.label :price, style: "display: block" %>
-    <%= form.text_field :price %>
+  <div class="form-group">
+    <%= form.label :price, class: "form-label" %>
+    <%= form.text_field :price, class: "form-input" %>
   </div>
 
-  <div>
-    <%= form.hidden_field :user_id, value: current_user.id %>
-  </div>
+  <%= form.hidden_field :user_id, value: current_user.id %>
 
-  <div>
-    <%= form.submit %>
+  <div class="form-group">
+    <%= form.submit class: "form-submit" %>
   </div>
 <% end %>

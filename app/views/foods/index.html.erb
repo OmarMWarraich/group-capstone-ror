@@ -2,29 +2,35 @@
 
 <h1 class='text-center'>Foods</h1>
 
-<div class='container' style='margin-top:2.5rem;'>
-  <div class='align-left' style='margin-bottom:5rem;'>
-    <%= link_to "Add Food", new_food_path, class: "large-button", data: { turbo_frame: "modal" } %>
-  </div>
-  <ul class='grid-container'>
-      <li>Food</li>
-      <li>Measurement Unit</li>
-      <li>Price</li>
-      <li>Actions</li>
-  </ul>
-  <%= turbo_stream_from "foods" %>
-  <%= turbo_frame_tag "foods" do%>
-    <% @foods.each do |food| %>
-      <ul class='grid-container'>
-      <li><%= food.name %></li>
-      <li><%= food.measurement_unit %></li>
-      <li><%= food.price %></li>
-      <li>
-      <%= button_to "Delete", food_path(food.id), method: :delete, class:'large-button' %>
-      </li>
-      </ul>
+<div data-controller="food-modal">
+  <div class='container' style='margin-top:2.5rem;'>
+    <div class='align-left' style='margin-bottom:5rem;'>
+      <button class="large-button" data-action="food-modal#open" data-food-modal-target="openButton">Add Food</button>
+    </div>
+    <ul class='grid-container'>
+        <li>Food</li>
+        <li>Measurement Unit</li>
+        <li>Price</li>
+        <li>Actions</li>
+    </ul>
+    <%= turbo_stream_from "foods" %>
+    <%= turbo_frame_tag "foods" do%>
+      <% @foods.each do |food| %>
+        <ul class='grid-container'>
+        <li><%= food.name %></li>
+        <li><%= food.measurement_unit %></li>
+        <li><%= food.price %></li>
+        <li>
+        <%= button_to "Delete", food_path(food.id), method: :delete, class:'large-button' %>
+        </li>
+        </ul>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
+  <div id="newFoodModal" class="modal hidden" data-food-modal-target="modal" data-foods-url="<%= foods_url %>" data-action="click->food-modal#outsideClick">
+    <div class="modal-content">
+      <span class="close-button" data-action="click->food-modal#close" data-food-modal-target="closeButton">&times;</span>
+      <%= render "foods/form", food: Food.new %>
+    </div>
+  </div>
 </div>
-
-<%= turbo_frame_tag "modal" %>
