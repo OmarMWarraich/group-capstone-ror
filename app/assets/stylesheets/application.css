@@ -155,6 +155,7 @@ select {
   /* border-bottom: none; */
   padding: 1rem;
   margin-bottom: 0;
+  background-color: aliceblue;
 }
 
 .grid-container:last-of-type {
@@ -281,6 +282,10 @@ select {
   text-decoration: none;
   background-color: hsl(var(--clr-light));
   color: hsl(var(--clr-dark));
+  cursor: pointer;
+  border: 1px solid hsl(var(--clr-light) / 0.1); /* Use custom property for white color */
+  border-radius: 10px;
+  box-shadow: hsl(var(--clr-white) / 0.7) 0px 5px 15px;
 }
 
 .normal-button::after,
@@ -296,15 +301,21 @@ select {
 }
 
 .normal-button:hover::after,
-.normal-button:focus::after,
+.normal-button:focus::after {
+  opacity: 1;
+  transform: scale(1.25);
+  border-radius: 10px;
+}
+
 .large-button:hover::after,
 .large-button:focus::after {
   opacity: 1;
-  transform: scale(1.5);
+  transform: scale(1.2);
+  border-radius: 10px;
 }
 
 .large-button {
-  padding: 0.5rem 1.5rem;
+  padding: 0.7rem 1.5rem;
 }
 
 .normal-button {
@@ -499,4 +510,38 @@ select {
     var(--clr-white)
   ); /* Use custom property for white color */
   color: hsl(var(--clr-dark)); /* Use custom property for dark color */
+}
+
+.auth-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.auth-inner-container {
+  border: 1px solid hsl(var(--clr-light) / 0.1); /* Use custom property for white color */
+  padding: 2rem;
+  box-shadow: hsl(var(--clr-white) / 0.7) 0px 5px 15px;
+}
+
+.auth-inner-container * {
+  margin-bottom: 0.7rem;
+}
+
+.auth-container-hero {
+  border: 1px solid hsl(var(--clr-light) / 0.1); /* Use custom property for white color */
+  border-radius: 10px;
+  box-shadow: hsl(var(--clr-white) / 0.7) 0px 5px 15px;
+  font-size: var(--fs-700); /* Use custom property for font size */
+  font-weight: bold;
+  /* box-shadow: 5px 5px hsl(var(--clr-light) / 0.1); */
+}
+
+.auth-field {
+  border: 1px solid hsl(var(--clr-light) / 0.1); /* Use custom property for white color */
+  border-radius: 10px;
+  box-shadow: hsl(var(--clr-white) / 0.7) 0px 5px 15px;
 }
