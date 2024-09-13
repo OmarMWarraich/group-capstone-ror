@@ -1,11 +1,13 @@
 <% if user_signed_in? %>
   <div class='container' style='margin-top:3rem;'>  
     <ul class='primary-navigation align-items-center'>
-      <li class='letter-spacing-3 fs-700'>
-        Recipe App
+      <li class='letter-spacing-3 fs-700 title'>
+        <h1>
+          Recipe App
+        </h1>
       </li>
       <li>
-        <ul class='primary-navigation underline-indicators'>
+        <ul class='primary-navigation underline-indicators title'>
           <li>
             <%= link_to 'Public Recipes', public_recipes_path %>
           </li>

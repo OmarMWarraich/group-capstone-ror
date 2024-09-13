@@ -29,8 +29,9 @@
   </div>
   <div id="newFoodModal" class="modal hidden" data-food-modal-target="modal" data-foods-url="<%= foods_url %>" data-action="click->food-modal#outsideClick">
     <div class="modal-content">
-      <span class="close-button" data-action="click->food-modal#close" data-food-modal-target="closeButton">&times;</span>
-      <%= render "foods/form", food: Food.new %>
+      <%= render "foods/form", food: Food.new do %>
+        <span class="close-button" data-action="click->food-modal#close" data-food-modal-target="closeButton">&times;</span>
+      <% end %>
     </div>
   </div>
 </div>

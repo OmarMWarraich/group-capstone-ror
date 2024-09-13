@@ -1,4 +1,7 @@
 <%= form_with(model: food, html: { class: "food-form" }) do |form| %>
+  <div class="close-button">
+   <%= yield if block_given? %>
+  </div>
   <% if food.errors.any? %>
     <div class="form-errors">
       <h2><%= pluralize(food.errors.count, "error") %> prohibited this food from being saved:</h2>
@@ -10,6 +13,8 @@
     </div>
   <% end %>
 
+  <h1 class="form-title">Add Food</h1>
+  
   <div class="form-group">
     <%= form.label :name, class: "form-label" %>
     <%= form.text_field :name, class: "form-input" %>
