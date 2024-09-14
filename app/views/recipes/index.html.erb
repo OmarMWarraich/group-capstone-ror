@@ -1,23 +1,20 @@
-<p style="color: green"><%= notice %></p>
+<p class="notice"><%= notice %></p>
 
 <h1 class='text-center'>Recipes</h1>
 
-<div class='container' style='margin-top:2.5rem;'>
-  <div class='align-left' style='margin-bottom:5rem;'>
-    <%=link_to "Add Recipe", new_recipe_path, class: "large-button" %>
-  </div>
-</div>
-<% @recipes.each do |recipe| %>
-  <div class='recipe-card' style='margin-top:2.5rem;'>
-    <div>
-      <h3 style='margin-bottom:0.6rem;'>Recipe <%= recipe.id %></h3>
-      <%= button_to "Delete", recipe_path(recipe.id), method: :delete, class:'large-button' %>
+<div>
+  <div class='container' style='margin-top:2.5rem;'>
+    <div class='align-left' style='margin-bottom:5rem;'>
+      <%= link_to "Add Recipe", new_recipe_path, class: "large-button" %>
     </div>
-    <%= link_to recipe_path(recipe.id) do %>
-    <div>
-      <p><%= recipe.description %></p>
-    </div>
+    <%= turbo_stream_from "recipes" %>
+    
+    <%= turbo_frame_tag "recipe-form" do %>
+      <%= render "recipes/form", recipe: @recipe %>
+    <% end %>
+
+    <%= turbo_frame_tag "recipes", class:"recipes-container-rows" do %>
+      <%= render partial: "recipes/recipe", collection: @recipes %>
     <% end %>
   </div>
-<% end %>      
-        
+</div>

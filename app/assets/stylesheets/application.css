@@ -161,9 +161,18 @@ select {
   box-shadow: hsl(var(--clr-white) / 0.7) 0px 5px 15px;
 }
 
-.grid-container:last-of-type {
-  border-bottom: 2px solid hsl(var(--clr-white) / 0.1);
+.public-recipe-card {
+  grid-template-columns: 1fr 1fr;
 }
+
+.public-recipe-card p {
+  margin: 0;
+  color: hsl(var(--clr-light));
+}
+
+/* .grid-container:last-of-type {
+  border-bottom: 2px solid hsl(var(--clr-white) / 0.1);
+} */
 
 .grid-container:hover {
   transform: scale(1.05);
@@ -177,6 +186,23 @@ select {
 .grid-container li:hover {
   transform: scale(1.5);
   /* box-shadow: hsl(var(--clr-white) / 0.7) 0px 10px 20px; */
+}
+
+.recipe-grid-container {
+  display: grid;
+  column-gap: var(--container-gap, 2rem);
+  /* grid-template-columns: repeat(4, minmax(0, 30rem)); */
+  list-style-type: none;
+  place-items: center;
+  font-size: var(--fs-400);
+  /* border: 2px solid hsl(var(--clr-white) / 0.1); */
+  /* border-bottom: none; */
+  padding: 1rem;
+  margin: 1.5rem 0;
+  background-color: hsl(var(--clr-light) / 0.1);
+  border: 1px solid hsl(var(--clr-light) / 0.1); /* Use custom property for white color */
+  border-radius: 10px;
+  box-shadow: hsl(var(--clr-white) / 0.7) 0px 5px 15px;
 }
 
 .sr-only {
@@ -436,18 +462,38 @@ select {
   --gap: 2rem;
 }
 
+.recipes-container-header {
+  /* there are five columns in the table */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.recipes-container-rows div {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  padding-top: 0.5rem;
+}
+
+.recipe-container-rows div div {
+  text-align: center !important;
+}
+
 .recipe-card {
   background: rgba(255, 255, 255, 0.2);
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  display: grid;
+  /* display: grid;
   grid-template-columns: 200px 300px;
-  grid-gap: 10px;
+  grid-gap: 10px; */
   align-items: center;
   color: white;
   font-weight: 100;
   place-items: center;
   text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 10px;
+  margin: 1rem 0;
 }
 
 .public a {

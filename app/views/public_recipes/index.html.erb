@@ -5,17 +5,15 @@
 <div class='container public' style='margin-top:2.5rem;'>
 <% @recipes.each do |recipe| %>
   <%= link_to recipes_url do %>
-      <div class='grid' style='margin-bottom:2rem;'>
-        <div class='recipe-card'>
-          <div class='flex-col'>
-            <p><%= recipe.name %></p>
-            <p><%= recipe.user.name %></p>
-          </div>
-          <div>
-            <p>Total Food Items: </p>
-            <p>Total Price: </p>
-          </div>              
+      <div class='grid-container public-recipe-card' style='margin-bottom:2rem;'>
+        <div>
+          <p><%= recipe.name %></p>
+          <p><%= recipe.user.name %></p>
         </div>
+        <div>
+          <p>Total Food Items: </p>
+          <p>Total Price: </p>
+        </div>              
       </div>
     <% end %>
   <% end %>
