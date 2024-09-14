@@ -1,4 +1,4 @@
-<%= form_with(model: recipe, local: true, id: dom_id(recipe), html: { class: "grid-container" }) do |form| %>
+<%= form_with(model: recipe, local: true, id: dom_id(recipe), html: { class: "recipe-form-container" }) do |form| %>
   <% if recipe.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
@@ -10,31 +10,34 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.text_field :name, placeholder: "Name" %>
+  <div class="upper-section">
+    <%= form.text_area :description, placeholder: "Description", class: "recipe-input-description" %>
   </div>
 
-  <div>
-    <%= form.text_field :preparation_time, placeholder: "Preparation Time" %>
-  </div>
+  <div class="lower-section">
+    <div class="recipe-placeholder">
+      <%= form.text_field :name, placeholder: "Name" %>
+    </div>
 
-  <div>
-    <%= form.text_field :cooking_time, placeholder: "Cooking Time" %>
-  </div>
+    <div class="recipe-placeholder">
+      <%= form.text_field :preparation_time, placeholder: "Preparation Time" %>
+    </div>
 
-  <div>
-    <%= form.text_area :description, placeholder: "Description" %>
-  </div>
+    <div class="recipe-placeholder">
+      <%= form.text_field :cooking_time, placeholder: "Cooking Time" %>
+    </div>
 
-  <div>
-    <%= form.check_box :public %>
-  </div>
 
-  <div>
-    <%= form.hidden_field :user_id, value: current_user.id %>
-  </div>
+    <div>
+      <%= form.check_box :public %>
+    </div>
 
-  <div>
-    <%= form.submit "Save Recipe", class: "large-button" %>
+    <div class="hidden-field">
+      <%= form.hidden_field :user_id, value: current_user.id %>
+    </div>
+
+    <div>
+      <%= form.submit "Save Recipe", class: "large-button" %>
+    </div>
   </div>
 <% end %>

@@ -170,9 +170,85 @@ select {
   color: hsl(var(--clr-light));
 }
 
-/* .grid-container:last-of-type {
-  border-bottom: 2px solid hsl(var(--clr-white) / 0.1);
-} */
+.recipe-form-container {
+  display: grid;
+  grid-template-rows: 1fr 1fr; /* Two rows */
+  grid-template-columns: repeat(5, 1fr); /* Six equal columns */
+  /* gap: 10px; Add some space between the grid items */
+  list-style-type: none;
+  place-items: center;
+  font-size: var(--fs-400);
+  /* border: 2px solid hsl(var(--clr-white) / 0.1); */
+  /* border-bottom: none; */
+  padding: 1rem;
+  margin-bottom: 0;
+  background-color: hsl(var(--clr-light) / 0.1);
+  border: 1px solid hsl(var(--clr-light) / 0.1); /* Use custom property for white color */
+  border-radius: 10px;
+  box-shadow: hsl(var(--clr-white) / 0.7) 0px 5px 15px;
+}
+
+.upper-section {
+  grid-column: 1 / -1; /* Span all columns */
+  grid-row: -1; /* Take the upper half */
+  width: 100%;
+}
+
+.lower-section {
+  display: contents; /* Ensure the lower section uses the grid layout of the parent */
+  margin-bottom: 0;
+}
+
+.lower-section > div {
+  grid-column: span 1; /* Each div spans one column */
+  margin-top: 0;
+  margin-right: 1.4rem;
+}
+
+.lower-section > div > * {
+  border: none;
+  text-align: center;
+}
+
+.recipe-input-description {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid hsl(var(--clr-white) / 0.1); /* Use custom property for white color */
+  border-radius: 4px;
+  background-color: hsl(
+    var(--clr-light)
+  ); /* Use custom property for light color */
+  color: hsl(var(--clr-dark)); /* Use custom property for dark color */
+  text-align: center;
+}
+
+.recipe-placeholder {
+  /* padding: 0.5rem; */
+  border: 1px solid hsl(var(--clr-white) / 0.1); /* Use custom property for white color */
+  border-radius: 4px;
+  background-color: hsl(
+    var(--clr-light)
+  ); /* Use custom property for light color */
+  color: hsl(var(--clr-light)); /* Use custom property for dark color */
+  background-color: transparent;
+}
+
+.recipe-placeholder:first-of-type {
+  margin-left: 1.6rem;
+}
+
+.recipe-placeholder > * {
+  border: 1px solid hsl(var(--clr-white) / 0.1); /* Use custom property for white color */
+  border-radius: 4px;
+  background-color: hsl(
+    var(--clr-light)
+  ); /* Use custom property for light color */
+  color: hsl(var(--clr-dark)); /* Use custom property for dark color */
+}
+
+.hidden-field {
+  display: none;
+}
 
 .grid-container:hover {
   transform: scale(1.05);
@@ -468,14 +544,30 @@ select {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
-.recipes-container-rows div {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  padding-top: 0.5rem;
+.recipes-container-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-.recipe-container-rows div div {
-  text-align: center !important;
+.recipes-container-rows div {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  border: 2px solid hsl(var(--clr-light) / 0.7);
+  place-items: center;
+  font-size: var(--fs-400);
+  border: 2px solid hsl(var(--clr-white) / 0.1);
+  border-bottom: none;
+  padding: 1rem;
+  margin-top: 1.5rem;
+  background-color: hsl(var(--clr-light) / 0.1);
+  border-radius: 10px;
+  box-shadow: hsl(var(--clr-white) / 0.7) 0px 5px 15px;
+  margin-top: 2rem;
+}
+
+.recipe-stats > div > p {
 }
 
 .recipe-card {
