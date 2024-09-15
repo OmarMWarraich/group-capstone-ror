@@ -465,18 +465,41 @@ select {
 .primary-navigation {
   --gap: 3rem;
   --underline-gap: 2rem;
-  list-style: none;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+}
+
+.primary-navigation > li,
+.primary-navigation > li > ul > li {
+  list-style: none;
+}
+
+.secondary-navigation {
   gap: var(--gap);
   padding: 0;
   margin: 0;
+  display: flex;
+  flex-direction: row;
 }
 
-.primary-navigation a {
+.primary-link {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between !important;
+  width: 100%;
+}
+
+.primary-link-secondary {
+  color: hsl(var(--clr-white) / 0.5);
+
+  border-radius: 10px;
+  box-shadow: hsl(var(--clr-white) / 0.7) 0px 5px 15px;
+  padding: 0.5rem 1rem;
+}
+
+.secondary-navigation > li > a {
   text-decoration: none;
   color: hsl(var(--clr-white) / 0.5);
-  border: 1px solid hsl(var(--clr-light) / 0.1); /* Use custom property for white color */
   border-radius: 10px;
   box-shadow: hsl(var(--clr-white) / 0.7) 0px 5px 15px;
   padding: 0.5rem 1rem;
@@ -489,26 +512,31 @@ select {
   border-bottom: 0.2rem solid hsl(var(--clr-white) / 0);
 }
 
+.primary-link-secondary:hover,
+.primary-link-secondary:focus,
 .underline-indicators *:hover,
 .underline-indicators *:focus {
   border-color: hsl(var(--clr-light));
-  transform: scale(1.05);
+  transform: scale(1.15);
 }
 
-.underline-indicators .active,
-.underline-indicators [aria-selected="true"] {
+.primary-link-secondary .active,
+.primary-link-secondary [aria-selected="true"],
+.underline-indicators * .active,
+.underline-indicators * [aria-selected="true"] {
   color: hsl(var(--clr-light));
   border-color: hsl(var(--clr-light));
 }
 
-.title {
+.title,
+.links-title {
   text-align: center;
   align-items: center;
   justify-content: center;
   letter-spacing: 1px;
 }
 
-.title h1 {
+.title > h1 {
   background-image: url(https://media.giphy.com/media/26BROrSHlmyzzHf3i/giphy.gif);
   background-size: cover;
   color: transparent;
@@ -520,18 +548,23 @@ select {
   margin: 10px 0;
 }
 
-.title li a {
+.title > ul > li > a,
+.links-title li a {
   background-image: url(https://media.giphy.com/media/26BROrSHlmyzzHf3i/giphy.gif);
   background-size: cover;
   color: transparent;
   -moz-background-clip: text;
   -webkit-background-clip: text;
   background-clip: text;
+  list-style: none;
 }
 
-.title li a:hover {
+.title > ul > li > a:hover,
+.primary-link-secondary:hover,
+.links-title li a:hover {
   background-image: none;
   color: var(--clr-light);
+  text-decoration: none;
 }
 
 .tab-list {
