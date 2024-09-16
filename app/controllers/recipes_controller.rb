@@ -3,12 +3,13 @@ class RecipesController < ApplicationController
 
   # GET /recipes or /recipes.json
   def index
-    @recipes = Recipe.all.where(user_id: current_user.id)
+    @recipes = Recipe.all.where(user_id: current_user.id).order(created_at: :desc)
     @recipe = Recipe.new
   end
 
   # GET /recipes/1 or /recipes/1.json
   def show
+    @recipe = Recipe.find(params[:id])
   end
 
   # GET /recipes/new
@@ -26,7 +27,8 @@ class RecipesController < ApplicationController
 
     respond_to do |format|
       if @recipe.save
-        format.html { redirect_to recipes_url, notice: "Recipe was successfully created." }
+        flash[:notice] = "Recipe created."
+        format.html { redirect_to recipes_url }
         format.json { render :show, status: :created, location: @recipe }
       else
         format.html { render :new, status: :unprocessable_entity }

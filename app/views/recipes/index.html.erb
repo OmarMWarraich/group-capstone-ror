@@ -1,20 +1,17 @@
-<p class="notice"><%= notice %></p>
 
 <h1 class='text-center'>Recipes</h1>
+<div class='container' style='margin-top:2.5rem;'>
+  <%= turbo_stream_from "recipes" %>
+  
+  <%= turbo_frame_tag "recipe-form" do %>
+    <%= render "recipes/form", recipe: @recipe %>
+  <% end %>
 
-<div>
-  <div class='container' style='margin-top:2.5rem;'>
-    <div class='align-left' style='margin-bottom:5rem;'>
-      <%= link_to "Add Recipe", new_recipe_path, class: "large-button" %>
-    </div>
-    <%= turbo_stream_from "recipes" %>
-    
-    <%= turbo_frame_tag "recipe-form" do %>
-      <%= render "recipes/form", recipe: @recipe %>
+  <%= turbo_frame_tag "recipes", class:"recipes-container-rows" do %>
+    <% @recipes.each do |recipe| %>
+      <%= link_to recipe_path(recipe) do %>
+        <%= render partial: "recipes/recipe", locals: { recipe: recipe } %>
+      <% end %>
     <% end %>
-
-    <%= turbo_frame_tag "recipes", class:"recipes-container-rows" do %>
-      <%= render partial: "recipes/recipe", collection: @recipes %>
-    <% end %>
-  </div>
+  <% end %>
 </div>

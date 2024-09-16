@@ -10,5 +10,4 @@ class Food < ApplicationRecord
   after_create_commit { broadcast_prepend_to 'foods' }
   after_update_commit { broadcast_replace_to 'foods' }
   after_destroy_commit { broadcast_remove_to 'foods' }
-
 end

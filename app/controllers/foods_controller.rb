@@ -25,7 +25,8 @@ class FoodsController < ApplicationController
 
     respond_to do |format|
       if @food.save
-        format.html { redirect_to foods_url, notice: "Food was successfully created." }
+        flash[:notice] = "Food created."
+        format.html { redirect_to foods_url }
         format.json { render :show, status: :created, location: @food }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -48,12 +49,28 @@ class FoodsController < ApplicationController
   end
 
   # DELETE /foods/1 or /foods/1.json
-  def destroy
-    @food.destroy
-
+    def destroy
+    @food = Food.find(params[:id])
     respond_to do |format|
-      format.html { redirect_to foods_url, notice: "Food was successfully destroyed." }
-      format.json { head :no_content }
+      if @food.destroy
+        flash.now[:notice] = "Food was successfully destroyed."
+        format.html { redirect_to foods_url, notice: "Food was successfully destroyed." }
+        format.json { head :no_content }
+        format.turbo_stream do
+          render turbo_stream: [
+            turbo_stream.remove(@food),
+            turbo_stream.append("flash-messages", partial: "shared/flash", locals: { notice: flash.now[:notice] })
+          ]
+        end
+      else
+        format.html { redirect_to foods_url, alert: "Food could not be destroyed." }
+        format.json { render json: @food.errors, status: :unprocessable_entity }
+        format.turbo_stream do
+          render turbo_stream: [
+            turbo_stream.append("flash-messages", partial: "shared/flash", locals: { alert: "Food could not be destroyed." })
+          ]
+        end
+      end
     end
   end
 
